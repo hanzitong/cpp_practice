@@ -1,5 +1,5 @@
 #include <iostream>
-#include <math>
+#include <math.h>
 
 
 void sqrt(int);
@@ -13,7 +13,6 @@ int main(){
     double y = 60.2;
     double *yPtr = &y;
     int s[] = {1, 2, 3, 4};
-
     int a = 50;
     int* xa = &a;
 
@@ -27,6 +26,7 @@ double take_value( int* pt ){
     return val;
 }
 
+
 void sqrt(int t){
     int* ptr = &t;
     t = math.sqrt(t);
@@ -35,6 +35,7 @@ void sqrt(int t){
 
 int add(int x, int y){
     int res = x + y;
+
     return 0;
 }
 
