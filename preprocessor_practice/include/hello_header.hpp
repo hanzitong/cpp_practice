@@ -1,21 +1,11 @@
-
-
-
 #ifndef PREPROCESSOR
 #define PREPROCESSOR
 
 namespace preprocessor{
 
-void func_hello(void);
+void hello_func(void);
 
 }   // namespace preprocessor
 
 #endif
-
-
-
-
-
-
-
 

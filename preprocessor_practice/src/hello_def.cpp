@@ -1,9 +1,9 @@
 
-
-
 #include <iostream>
 
-void func_hello(void){
+namespace preprocessor{
+
+void hello_func(void){
     std::cout << "hello" << std::endl;
 
 
@@ -11,11 +11,4 @@ void func_hello(void){
 }
 
 
-
-
-
-
-
-
-
-
+}   // namespace preprocessor

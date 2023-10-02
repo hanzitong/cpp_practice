@@ -1,20 +1,12 @@
 
 #include <iostream>
-#include <func_hello.hpp>
+// #include "../include/hello_header.hpp"
+#include <hello_header.hpp>
 
 
 int main(int argc, char* argv[]){
 
-    preprocessor::func_hello();
+    preprocessor::hello_func();
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
