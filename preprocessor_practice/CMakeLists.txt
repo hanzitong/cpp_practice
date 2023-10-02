@@ -20,8 +20,3 @@ add_executable(exe src/include_guard.cpp src/hello_def.cpp)
 # )
 
 
-
-
-
-
-
