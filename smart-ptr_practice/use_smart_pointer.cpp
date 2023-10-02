@@ -20,6 +20,7 @@ void func(int len){
 
     if(len > 0){
         ptr1 = std::make_unique<int[]>(len);
+        // ptr1 = std::make_unique<*int>(len);
     }
 
     for(int i = 0; i<len; ++i){
