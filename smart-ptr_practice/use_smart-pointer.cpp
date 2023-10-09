@@ -15,12 +15,11 @@ void func_wrong(int len){
 
 
 void func(int len){
-    std::unique_ptr<int[]> ptr1;
+    std::unique_ptr<int[]> ptr1;    // declaration of smart pointer owed by only 1 instance
     // int* ptr2 = nullptr;
 
     if(len > 0){
         ptr1 = std::make_unique<int[]>(len);
-        // ptr1 = std::make_unique<*int>(len);
     }
 
     for(int i = 0; i<len; ++i){
@@ -44,4 +43,14 @@ int main(int argc, char* argv[]){
 
     return 0;
 }
+
+
+/*
+unique_ptr : only 1 ownership
+shared_ptr : 
+
+
+*/
+
+
 
