@@ -2,7 +2,6 @@
 #include <iostream>
 #include <thread>
 #include <chrono>   // this library is for handle time
-#include <time>
 
 
 
@@ -38,12 +37,16 @@ int main() {
 
     // at this line, thread1 join main thread.
     // if either sub-thread or main-thread is still not finished, the other one wait it to finish here.     thread1.join();     
-    std::cout << "waiting thread2 to join " << std::endl;
-    thread2.join();     
-    std::cout << "waiting thread1 to join" << std::endl;
-    thread1.join();     
+    std::cout << "detach thread2 from main-thread " << std::endl;
+    thread2.detach();     
+    std::cout << "detach thread1 from main-thread" << std::endl;
+    thread1.detach();     
 
-    std::cout << "maint thread finish" << std::endl;
+    std::cout << "maint thread contining ........." << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(5));
+
+    std::cout << "main process finish" << std::endl;
+    /* if main-process finish, all sub-thread forced to be terminated */
 
     return 0;
 }
