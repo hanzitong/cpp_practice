@@ -1,33 +1,32 @@
 
-
 #include <iostream>
-#include <vector>
 #include <thread>
+#include <chrono>   // this library is for handle time
 
 
-void hello(int threadID){
-    std::cout << "hello from thread" << threadID << std::endl;
+/* thread is executed in */
+
+void printNumbers1() {
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "thread1: "<< i << ' ' << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
 }
 
-
-int main(int argc, char*argv[]){
-    const int num_thread = 5;
-
-    std::vector<std::thread> threads;
-
-    /* for watching behibior of std::thread() */
-    std::thread(hello, 99);
-
-    for (int i; i<num_thread; ++i) {
-        threads.push_back(std::thread(hello, i));
+void printNumbers2() {
+    for (int i = 0; i < 10; ++i) {
+        std::cout << "thread2: " << i << ' ' << std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(2));
     }
+}
 
-    for (std::thread &thread : threads) {
-        thread.join();
-    }
+int main() {
+    /* std::threadオブジェクトが作成された段階でmain関数から枝分かれして独立に実行され，thread.join()のタイミングでmain関数に合流する */
+    std::thread thread1(printNumbers1);
+    std::thread thread2(printNumbers2);
+
+    thread1.join();     // at this line, thread1 join main thread.
+    thread2.join();     // if either sub-thread or main-thread is still not finished, the other one wait it to finish here. 
 
     return 0;
 }
-
-
-
