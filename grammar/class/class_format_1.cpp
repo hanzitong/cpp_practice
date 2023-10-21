@@ -1,73 +1,60 @@
-
+ 
 #include <iostream>
 #include <vector>
 
 template <typename T>
 class MyAdvancedClass {
+// public: can be accessed form everywhere(outside and inside)
 public:
-    // イニシャライザリストを使用したコンストラクタ
+    // constructor using initializer list
     MyAdvancedClass(T value) : value(value) {
         std::cout << "Constructor called with value: " << value << std::endl;
     }
 
-    // デストラクタ
+    // destractor (all destructor cannot take argument and cannot overload)
     ~MyAdvancedClass() {
         std::cout << "Destructor called" << std::endl;
     }
 
-    // inlineとconstメンバ関数
+    // member function 
+    // "const" modifier lock this function not to change class member variable.
+    // "inline" modifier tells compiler to reduce its overhead(only ~~ns) when called.
+    //      also, "inline" may increase memory usage because compiler copy function other place multi-times.
+    // "noexcept" modifier insure this function don't return exception.
+    //      if exception occurs inside the funciton, the whole program terminate with std::terminate().
+    //      by ensuring this function don't through exception, "noexcept" can increase program paformance and readability.
     inline T getValue() const noexcept {
         return value;
     }
 
-    // staticメンバ関数
+    // static member function (which can be called without making class instance)
     static void staticFunction() {
         std::cout << "Static Function Called" << std::endl;
     }
 
-    // inlineメンバ関数とラムダ式を使用
-    inline void processValues(const std::vector<T>& values) {
-        std::cout << "Values: ";
-        for (const auto& val : values) {
-            std::cout << val << " ";
-        }
-        std::cout << std::endl;
-    }
-
-    // mutableラムダとイニシャライザリストを使用
-    auto getLambda() const {
-        int x = 5;
-        return [x, this]() mutable {
-            x += static_cast<int>(this->value);
-            return x;
-        };
-    }
-
+// "protected:" allows user to access from inherited class but prohibits access from outside of class 
 protected:
     void protectedFunction() {
         std::cout << "Protected function called" << std::endl;
     }
 
+// "private:" can be accessed from only inside of this class. prohibit access from outside and inherited class.
 private:
     T value;
 };
 
+
+
 int main() {
-    // int型でテンプレートクラスをインスタンス化
+    // make instance
     MyAdvancedClass<int> myClass(42);
 
-    // constメンバ関数の呼び出し
-    std::cout << "Value: " << myClass.getValue() << std::endl;
-
-    // staticメンバ関数の呼び出し
+    // call static function
     MyAdvancedClass<int>::staticFunction();
 
-    // inlineメンバ関数とラムダ式を使用したメンバ関数の呼び出し
-    myClass.processValues({1, 2, 3, 4, 5});
+    // cannot call protected function here.
+    // myClass.protectedFunction();     // compile error
 
-    // mutableラムダの呼び出し
-    auto lambda = myClass.getLambda();
-    std::cout << "Lambda Result: " << lambda() << std::endl;
 
     return 0;
 }
