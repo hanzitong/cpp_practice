@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 
+
 template <typename T>
 class MyAdvancedClass {
 // public: can be accessed form everywhere(outside and inside)
@@ -58,3 +59,7 @@ int main() {
 
     return 0;
 }
+
+
+
+// keywords like "inline" is called "modifier" or "specifier"
