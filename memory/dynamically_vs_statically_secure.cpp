@@ -5,6 +5,7 @@ heap memory : it does't require variable size when compile.
 this is why if you want to secure memory dynamically, you need to secure it in heap.
 
 eg. std::vector secure memory dynamically so it exists in heap.
+    but you don't need to manipulate memory by hands.
 */
 
 
