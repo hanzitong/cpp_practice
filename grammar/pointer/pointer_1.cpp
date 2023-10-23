@@ -1,53 +1,26 @@
 #include <iostream>
-#include <math.h>
 
-
-void sqrt(int);
-int add(int x, int y);
-double twice(int a);
 
 
 int main(){
+    // declare normal variable
     int x = 40;
+    // put x address to xPtr
     int* xPtr = &x;
-    double y = 60.2;
-    double *yPtr = &y;
-    int s[] = {1, 2, 3, 4};
-    int a = 50;
-    int* xa = &a;
 
-    std::cout << pt() << "\n";
-
-    return 0;
-}
-
-double take_value( int* pt ){
-    val = *pt;
-    return val;
-}
-
-
-void sqrt(int t){
-    int* ptr = &t;
-    t = math.sqrt(t);
-}
-
-
-int add(int x, int y){
-    int res = x + y;
+    // watch both address xPtr and x. both point same address.
+    std::cout << "x address: " << &x << std::endl;
+    std::cout << "xPtr: " << xPtr << std::endl;
+    // BUT !!!!!   ptr's address is NOT same. because ptr has it's own address.
+    std::cout << "xPtr address: " << &xPtr << std::endl;
+        /*  output 
+        x address:      0x7ffc7e3ac9d8  // same with xPtr
+        xPtr:           0x7ffc7e3ac9d8  // 140722426268120
+        xPtr address:   0x7ffc7e3ac9e0  // 140722426268128
+        */
+    
 
     return 0;
 }
-
-
-double twice( int a ){
-    std::cout << a << std::endl;
-    a *= 2.;
-    std::cout << a << std::endl;
-
-    return a;
-}
-
-
 
 
