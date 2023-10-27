@@ -20,7 +20,7 @@ auto_ptr appears in c++03, but it's deprecated after c++11.
     
 */
 
-#include <memory>
+#include <memory>   // need for auto_ptr
 #include <iostream>
 
 
