@@ -25,7 +25,7 @@ void selection_sort(int *arr, int size) {
 int main() {
     int vec[10000];
     for (int i=0; i<10000; ++i) {
-        vec[i] = rand() % 10000;    // generate random number
+        vec[i] = rand() % 10000;    // generate random number (old method)
     }
 
     boost::timer::auto_cpu_timer t;
