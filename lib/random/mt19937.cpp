@@ -21,12 +21,6 @@ int main(){
         vec2[i] = val;
     }
 
-   
     return 0;
 }
-
-
-
-
-
 
