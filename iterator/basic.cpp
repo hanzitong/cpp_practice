@@ -29,16 +29,21 @@ int main() {
         A[i] = distrib(gen);    // this is how to use random
     }
 
-    here::display_array(A);
-    std::sort(A.begin(), A.end());
+    // here::display_array(A);
+    // std::sort(A.begin(), A.end());
 
     here::display_array(A);
 
-    auto ite = A.begin();
-    for (int i ; i < A.size(); ++i) {
-        std::cout << *ite << std::endl;
-        ite++;
-    }
+    // auto ite = A.begin();
+    // for (int i ; i < A.size(); ++i) {
+    //     std::cout << *ite << std::endl;
+    //     ite++;
+    // }
+
+    auto ite0 = A.begin();
+    auto ite5 = A.begin() + 5;
+    std::cout << *ite0 << ' ' << *ite5 << std::endl;
+    std::cout << (ite5 - ite0) << std::endl;    // A[0],A[1],A[2],A[3],A[4],A[5]
 
 
     return 0;
