@@ -1,16 +1,15 @@
 
 #include <iostream>
+#include <vector>
 #include <utility>
 
 
 int main(){
-    std::pair<int, char> mypair(1, 'R');
+    std::vector<std::pair<int, int>> vec(2, std::pair<int, int>(2, 30));
 
-    int first_element = mypair.first;
-    char second_element = mypair.second;
-
-    std::cout << "first :" << first_element << std::endl;
-    std::cout << "secont :" << second_element << std::endl;
+    for (const auto& obj : vec) {   // take each obj from vec
+        std::cout << obj.first << " " << obj.second << std::endl;
+    }
 
 
     return 0;
