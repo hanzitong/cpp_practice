@@ -40,7 +40,7 @@ int main() {
     //     ite++;
     // }
 
-    auto ite0 = A.begin();
+    auto ite0 = A.begin();  // iterator
     auto ite5 = A.begin() + 5;
     std::cout << *ite0 << ' ' << *ite5 << std::endl;
     std::cout << (ite5 - ite0) << std::endl;    // A[0],A[1],A[2],A[3],A[4],A[5]
