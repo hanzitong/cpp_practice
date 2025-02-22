@@ -24,7 +24,9 @@ class Mul {
             return i_ * j;
         }
 
-
+        void operator() () {
+            std::cout << i_ << std::endl;
+        }
 };
 
 
@@ -42,6 +44,10 @@ int main() {
     std::cout << guest1(2) << std::endl;
     std::cout << guest2(2) << std::endl;
     std::cout << guest3(2) << std::endl;
+
+    std::cout << "---" << std::endl;    // start testing operator usage
+
+    guest1();
 
 
 
